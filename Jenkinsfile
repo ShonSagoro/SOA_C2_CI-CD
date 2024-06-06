@@ -17,8 +17,6 @@ pipeline {
             steps {
                 script {
                     docker.image(DOCKER_IMAGE).inside {
-                        sh 'whoami'
-                        sh 'npm install'
                         sh 'npm test'
                     }
                 }
