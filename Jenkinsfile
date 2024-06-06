@@ -17,6 +17,7 @@ pipeline {
             steps {
                 script {
                     docker.image(DOCKER_IMAGE).inside {
+                        sh 'chown -R 111:113 /.npm'
                         sh 'npm install'
                         sh 'npm test'
                     }
