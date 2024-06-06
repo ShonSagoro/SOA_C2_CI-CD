@@ -19,6 +19,7 @@ pipeline {
                     docker.image(DOCKER_IMAGE).inside {
                         sh 'pwd'
                         sh 'ls -l'
+                        sh 'npm cache clean --force'
                         sh 'npm --version'
                         sh 'npm install'
                         sh 'npm test'
