@@ -19,7 +19,8 @@ pipeline {
                     docker.image(DOCKER_IMAGE).inside {
                         sh 'pwd'
                         sh 'ls -l'
-                        sh 'sudo chown -R $(whoami) ~/.npm'
+                        sh 'npm --version'
+                        sh 'npm config set cache $(pwd)/.npm-cache --global'
                         sh 'npm install'
                         sh 'npm test'
                     }
